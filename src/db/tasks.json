@@ -72,31 +72,6 @@
   {
     "id": 15,
     "title": "Car maintenance check",
-    "completed": false
-  },
-  {
-    "id": 15,
-    "title": "Car maintenance check",
     "completed": true
-  },
-  {
-    "id": 15,
-    "title": "Car maintenance check",
-    "completed": true
-  },
-  {
-    "id": 15,
-    "title": "Car maintenance check",
-    "completed": true
-  },
-  {
-    "id": 15,
-    "title": "Car maintenance check",
-    "completed": false
-  },
-  {
-    "id": 15,
-    "title": "Car maintenance check",
-    "completed": false
   }
 ]

@@ -1,5 +1,4 @@
 import chalk from 'chalk';
-import { stringify } from 'querystring';
 import { DB_PATH } from './constants.js';
 import fs from 'fs/promises';
 
@@ -47,19 +46,18 @@ const deleteTask = async id => {
 };
 
 await deleteTask(200);
-
 console.log(chalk.hex('#d6d963')('tasks after deleting task with the id 200'));
 console.log(await readTasks());
 
-const updateTask = async (id, updatedTask) => {
-  const users = await readTasks();
-  const user = await getById(id);
-  if (!user) return;
-
-  const updatedUser = { ...user, ...updatedTask };
+const updateTask = async (id, newTask) => {
+  const task = await getById(id);
+  if (!task) return;
   await deleteTask(id);
-  users.push(updatedUser);
-  await writeTasks(users);
+  const tasks = await readTasks();
+
+  const updatedTask = { ...task, ...newTask };
+  tasks.push(updatedTask);
+  await writeTasks(tasks);
 };
 
 await updateTask(15, { completed: true });
