@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Buy groceries",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "title": "Finish the project report",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "title": "Schedule dentist appointment",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Call mom",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "title": "Clean the kitchen",
+    "completed": false
+  },
+  {
+    "id": 6,
+    "title": "Read 10 pages of a book",
+    "completed": true
+  },
+  {
+    "id": 7,
+    "title": "Water the plants",
+    "completed": false
+  },
+  {
+    "id": 8,
+    "title": "Gym workout session",
+    "completed": true
+  },
+  {
+    "id": 9,
+    "title": "Pay the electricity bill",
+    "completed": false
+  },
+  {
+    "id": 10,
+    "title": "Update resume",
+    "completed": false
+  },
+  {
+    "id": 11,
+    "title": "Walk the dog",
+    "completed": true
+  },
+  {
+    "id": 12,
+    "title": "Prepare lunch for tomorrow",
+    "completed": false
+  },
+  {
+    "id": 13,
+    "title": "Reply to pending emails",
+    "completed": true
+  },
+  {
+    "id": 14,
+    "title": "Back up computer files",
+    "completed": false
+  },
+  {
+    "id": 15,
+    "title": "Car maintenance check",
+    "completed": false
+  },
+  {
+    "id": 15,
+    "title": "Car maintenance check",
+    "completed": true
+  },
+  {
+    "id": 15,
+    "title": "Car maintenance check",
+    "completed": true
+  },
+  {
+    "id": 15,
+    "title": "Car maintenance check",
+    "completed": true
+  },
+  {
+    "id": 15,
+    "title": "Car maintenance check",
+    "completed": false
+  },
+  {
+    "id": 15,
+    "title": "Car maintenance check",
+    "completed": false
+  }
+]
