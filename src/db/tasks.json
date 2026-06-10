@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "title": "Buy groceries",
-    "completed": true
+    "title": "Lea",
+    "completed": "true"
   },
   {
     "id": 2,
@@ -92,11 +92,6 @@
   {
     "title": "new",
     "id": 19,
-    "completed": false
-  },
-  {
-    "title": "new",
-    "id": 20,
     "completed": false
   }
 ]

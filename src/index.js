@@ -5,10 +5,23 @@ import fs from 'fs/promises';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
+// const readTasks = () => {
+//   return fs
+//     .readFile(DB_PATH, 'utf-8')
+//     .then(data => JSON.parse(data))
+//     .catch(error => {
+//       console.log(error);
+//       return [];
+//     });
+// };
+
 const readTasks = async () => {
   try {
-    return await fs.readFile(DB_PATH, 'utf-8').then(data => JSON.parse(data));
+    const data = await fs.readFile(DB_PATH, 'utf-8');
+    const parsedData = JSON.parse(data);
+    return parsedData;
   } catch (error) {
+    console.log(chalk.red(error));
     return [];
   }
 };
@@ -22,7 +35,12 @@ const writeTasks = async tasks => {
 // console.log(await readTasks());
 
 const getById = async id => {
+  if (Number.isNaN(id)) {
+    console.log(chalk.red('Id is required and must be a number'));
+    return;
+  }
   const tasks = await readTasks();
+
   const task = tasks.find(task => task.id === id);
   if (!task) {
     console.log(chalk.red(`user with such id: '${id}' doesn't exist`));
@@ -32,6 +50,10 @@ const getById = async id => {
 };
 
 const addNewTask = async newTask => {
+  if (newTask.trim() === '') {
+    console.log('new task can not be empty');
+    return;
+  }
   const tasks = await readTasks();
   const id =
     (tasks.length === 0
@@ -45,15 +67,20 @@ const addNewTask = async newTask => {
 };
 
 const deleteTask = async id => {
+  if (Number.isNaN(id)) {
+    console.log(chalk.red('Id is required and must be a number'));
+    return;
+  }
   const tasks = await readTasks();
   const filteredTasks = tasks.filter(task => task.id !== id);
   await writeTasks(filteredTasks);
 };
 
 const updateTask = async (id, newTask) => {
-  const task = await getById(id);
-  if (!task) return;
-
+  if (Number.isNaN(id)) {
+    console.log(chalk.red('Id is required and must be a number'));
+    return;
+  }
   const tasks = await readTasks();
   const updatedTasks = tasks.map(task =>
     task.id === id ? { ...task, ...newTask } : task,
