@@ -30,15 +30,12 @@ const writeTasks = async tasks => {
   await fs.writeFile(DB_PATH, JSON.stringify(tasks, null, 2));
 };
 
-// console.log(chalk.hex('#d6d963')('all users ==>'));
-
-// console.log(await readTasks());
-
 const getById = async id => {
   if (Number.isNaN(id)) {
     console.log(chalk.red('Id is required and must be a number'));
     return;
   }
+
   const tasks = await readTasks();
 
   const task = tasks.find(task => task.id === id);
@@ -55,6 +52,7 @@ const addNewTask = async newTask => {
     return;
   }
   const tasks = await readTasks();
+
   const id =
     (tasks.length === 0
       ? 1
@@ -71,22 +69,45 @@ const deleteTask = async id => {
     console.log(chalk.red('Id is required and must be a number'));
     return;
   }
+
   const tasks = await readTasks();
+
+  const checkId = await tasks.find(task => task.id === id);
+  if (!checkId) {
+    console.log(chalk.red(`task with a such id '${id}' doesn't exist `));
+    return;
+  }
+
   const filteredTasks = tasks.filter(task => task.id !== id);
+
   await writeTasks(filteredTasks);
+
+  console.log(chalk.red(`Task with an id '${id}' is deleted`));
+  console.log(checkId);
 };
 
 const updateTask = async (id, newTask) => {
   if (Number.isNaN(id)) {
     console.log(chalk.red('Id is required and must be a number'));
-    return;
+    return false;
   }
+
   const tasks = await readTasks();
+
+  const checkId = tasks.find(task => task.id === id);
+  if (!checkId) {
+    console.log(chalk.red(`task with a such id '${id}' doesn't exist `));
+    return false;
+  }
+
   const updatedTasks = tasks.map(task =>
     task.id === id ? { ...task, ...newTask } : task,
   );
 
   await writeTasks(updatedTasks);
+  console.log(chalk.green(`Task with id '${id}' is updated`));
+
+  console.log(newTask);
 };
 
 yargs()
@@ -127,7 +148,6 @@ yargs()
       if (argv.title !== undefined) newTask.title = argv.title;
       if (argv.completed !== undefined) newTask.completed = argv.completed;
       await updateTask(Number(argv.id), newTask);
-      console.log(newTask);
     },
   )
   .command(

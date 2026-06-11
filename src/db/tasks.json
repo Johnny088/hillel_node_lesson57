@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "title": "Lea",
+    "title": "Learn Node.js",
     "completed": "true"
   },
   {
     "id": 2,
-    "title": "Finish the project report",
-    "completed": false
+    "title": "Learn Node.js",
+    "completed": "true"
   },
   {
     "id": 3,
@@ -73,25 +73,5 @@
     "id": 15,
     "title": "Car maintenance check",
     "completed": true
-  },
-  {
-    "title": "new test",
-    "id": 16,
-    "completed": "true"
-  },
-  {
-    "title": "new",
-    "id": 17,
-    "completed": false
-  },
-  {
-    "title": "new",
-    "id": 18,
-    "completed": false
-  },
-  {
-    "title": "new",
-    "id": 19,
-    "completed": false
   }
 ]
